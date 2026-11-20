@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phishing Awareness Lab</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Phishing Awareness Lab</h1>
+        <p>Plataforma de conscientização sobre segurança digital</p>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h2>Painel de Controle</h2>
+
+            <div class="card">
+                <h3>Campanhas educativas</h3>
+                <p>Gerencie suas campanhas de conscientização.</p>
+            </div>
+
+            <div class="card">
+                <h3>Analisador de mensagens</h3>
+                <p>Analise mensagens suspeitas e identifique sinais de phishing.</p>
+            </div>
+
+            <div class="card">
+                <h3>Relatórios</h3>
+                <p>Acompanhe os resultados das atividades educativas.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>
