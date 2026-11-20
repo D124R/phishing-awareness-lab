@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+{% block title %}Desafios | PhishLab{% endblock %}
+{% block content %}
+<span class="eyebrow">CENTRO DE TREINAMENTO</span>
+<h1>Missões e desafios</h1>
+<p class="muted">Desenvolva suas habilidades de identificação de ameaças.</p>
+
+<div class="challenge-list">
+{% for challenge in challenges %}
+    <article class="challenge-card">
+        <div>
+            <span class="eyebrow">MISSÃO {{ "%02d"|format(challenge.id) }}</span>
+            <h3>{{ challenge.title }}</h3>
+            <p>{{ challenge.description }}</p>
+        </div>
+        <div class="challenge-meta">
+            <span class="level">{{ challenge.level }}</span>
+            <strong>{{ challenge.xp }} XP</strong>
+            <a class="button" href="{{ url_for('simulator') }}">Iniciar →</a>
+        </div>
+    </article>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Phishing Awareness Lab{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">⌘</span>
+            <span>PHISH<span class="accent">LAB</span></span>
+        </div>
+
+        <p class="nav-label">PLATAFORMA</p>
+        <nav>
+            <a href="{{ url_for('index') }}">⌂ Dashboard</a>
+            <a href="{{ url_for('challenges') }}">▣ Desafios</a>
+            <a href="{{ url_for('simulator') }}">✉ Simulador</a>
+            <a href="{{ url_for('analyzer') }}">⌕ Analisador</a>
+            <a href="{{ url_for('reports') }}">▤ Relatórios</a>
+            <a href="{{ url_for('about') }}">ⓘ Sobre o laboratório</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span class="status-dot"></span> LABORATÓRIO LOCAL
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <span>CYBERSECURITY / TRAINING ENVIRONMENT</span>
+            <span class="online">● SISTEMA ATIVO</span>
+        </header>
+
+        <div class="page-content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer>PHISHING AWARENESS LAB · AMBIENTE EDUCACIONAL</footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

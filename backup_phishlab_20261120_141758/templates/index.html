@@ -1,0 +1,63 @@
+﻿{% extends "base.html" %}
+{% block title %}Dashboard | PhishLab{% endblock %}
+{% block content %}
+<section class="welcome">
+    <div>
+        <span class="eyebrow">CENTRO DE OPERAÇÕES / TREINAMENTO</span>
+        <h1>Bem-vindo ao <span class="accent">PhishLab.</span></h1>
+        <p>Aprenda a reconhecer ameaças digitais em um ambiente seguro.</p>
+    </div>
+    <div class="terminal-mark">[ LAB_01 ]</div>
+</section>
+
+<h2 class="section-title">Visão geral</h2>
+
+<div class="stats-grid">
+    <article class="stat-card">
+        <span>EXPERIÊNCIAS REALIZADAS</span>
+        <strong>{{ stats.total }}</strong>
+        <small>Atividades registradas</small>
+    </article>
+    <article class="stat-card">
+        <span>RESPOSTAS CORRETAS</span>
+        <strong>{{ stats.correct }}</strong>
+        <small>Acertos registrados</small>
+    </article>
+    <article class="stat-card">
+        <span>EXPERIÊNCIA ACUMULADA</span>
+        <strong>{{ stats.xp }} <small>XP</small></strong>
+        <small>Pontos conquistados</small>
+    </article>
+    <article class="stat-card">
+        <span>TAXA DE ACERTO</span>
+        <strong>{{ stats.accuracy }}%</strong>
+        <small>Precisão nas atividades</small>
+    </article>
+</div>
+
+<h2 class="section-title">Laboratórios disponíveis</h2>
+
+<div class="cards-grid">
+    <a class="lab-card" href="{{ url_for('challenges') }}">
+        <span class="card-icon">▣</span>
+        <span class="eyebrow">01 / MISSÕES</span>
+        <h3>Desafios</h3>
+        <p>Complete atividades e acumule experiência.</p>
+        <span class="card-link">ACESSAR LAB →</span>
+    </a>
+    <a class="lab-card" href="{{ url_for('simulator') }}">
+        <span class="card-icon">✉</span>
+        <span class="eyebrow">02 / SIMULAÇÃO</span>
+        <h3>Simulador</h3>
+        <p>Analise mensagens fictícias de treinamento.</p>
+        <span class="card-link">ACESSAR LAB →</span>
+    </a>
+    <a class="lab-card" href="{{ url_for('analyzer') }}">
+        <span class="card-icon">⌕</span>
+        <span class="eyebrow">03 / ANÁLISE</span>
+        <h3>Analisador</h3>
+        <p>Identifique indicadores de mensagens suspeitas.</p>
+        <span class="card-link">ACESSAR LAB →</span>
+    </a>
+</div>
+{% endblock %}

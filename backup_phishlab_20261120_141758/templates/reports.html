@@ -1,0 +1,40 @@
+﻿{% extends "base.html" %}
+{% block title %}Relatórios | PhishLab{% endblock %}
+{% block content %}
+<span class="eyebrow">CENTRO DE DESEMPENHO</span>
+<h1>Relatórios</h1>
+
+<div class="stats-grid">
+    <article class="stat-card"><span>ATIVIDADES</span><strong>{{ stats.total }}</strong></article>
+    <article class="stat-card"><span>ACERTOS</span><strong>{{ stats.correct }}</strong></article>
+    <article class="stat-card"><span>XP TOTAL</span><strong>{{ stats.xp }}</strong></article>
+    <article class="stat-card"><span>PRECISÃO</span><strong>{{ stats.accuracy }}%</strong></article>
+</div>
+
+<section class="panel">
+    <h2>Histórico de atividades</h2>
+    {% if results %}
+    <div class="table-wrap">
+    <table>
+        <thead><tr><th>Atividade</th><th>Pontos</th><th>Resultado</th><th>Data</th></tr></thead>
+        <tbody>
+        {% for item in results %}
+        <tr>
+            <td>{{ item.activity }}</td>
+            <td>{{ item.points }} XP</td>
+            <td>{{ "Correto" if item.correct else "Incorreto" }}</td>
+            <td>{{ item.created_at }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% else %}
+    <p class="muted">Nenhuma atividade realizada ainda. Experimente o simulador!</p>
+    {% endif %}
+</section>
+
+<form method="POST" action="{{ url_for('reset') }}" onsubmit="return confirm('Apagar todo o histórico local?')">
+    <button class="button button-danger" type="submit">Limpar histórico</button>
+</form>
+{% endblock %}

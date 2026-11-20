@@ -1,0 +1,278 @@
+﻿:root {
+    --bg: #0b1120;
+    --sidebar: #101a2d;
+    --panel: #16243a;
+    --panel-hover: #1c304b;
+    --text: #edf5ff;
+    --muted: #91a5bf;
+    --blue: #38bdf8;
+    --border: #263b56;
+    --green: #34d399;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 245px;
+    position: fixed;
+    inset: 0 auto 0 0;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: 1px;
+    margin-bottom: 48px;
+}
+
+.brand-icon {
+    color: var(--blue);
+    margin-right: 8px;
+}
+
+.accent { color: var(--blue); }
+
+.nav-label, .eyebrow {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    font-weight: 700;
+}
+
+nav {
+    display: grid;
+    gap: 9px;
+    margin-top: 14px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 13px;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+nav a:hover {
+    color: white;
+    background: var(--panel-hover);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.status-dot, .online {
+    color: var(--green);
+}
+
+.main-content {
+    margin-left: 245px;
+    min-height: 100vh;
+}
+
+.topbar {
+    height: 65px;
+    border-bottom: 1px solid var(--border);
+    padding: 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.page-content {
+    padding: 40px;
+    max-width: 1450px;
+    margin: auto;
+    min-height: calc(100vh - 110px);
+}
+
+.welcome {
+    background: linear-gradient(120deg, #142c48, #102035);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+h1 { font-size: clamp(28px, 4vw, 38px); margin: 14px 0; }
+h2 { font-size: 23px; }
+h3 { font-size: 19px; }
+p { line-height: 1.7; }
+.muted { color: var(--muted); }
+.terminal-mark { color: var(--blue); font-weight: 800; }
+
+.section-title { margin: 32px 0 20px; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.stat-card, .lab-card, .panel, .email-card,
+.challenge-card, .result-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 23px;
+}
+
+.stat-card span {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.stat-card strong {
+    font-size: 32px;
+    display: block;
+    margin: 13px 0 6px;
+}
+
+.stat-card small { color: var(--muted); }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.lab-card {
+    text-decoration: none;
+    color: var(--text);
+    transition: .2s;
+}
+
+.lab-card:hover {
+    background: var(--panel-hover);
+    transform: translateY(-3px);
+    border-color: var(--blue);
+}
+
+.card-icon {
+    display: block;
+    color: var(--blue);
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+.card-link {
+    display: block;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 24px;
+    letter-spacing: 1px;
+}
+
+.challenge-list { display: grid; gap: 16px; margin-top: 28px; }
+.challenge-card { display: flex; justify-content: space-between; gap: 20px; }
+.challenge-meta { display: grid; justify-items: end; gap: 12px; min-width: 140px; }
+.level { color: var(--green); font-size: 12px; }
+
+.button {
+    background: var(--blue);
+    color: #071322;
+    display: inline-block;
+    border: 0;
+    border-radius: 7px;
+    padding: 12px 19px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.button:hover { filter: brightness(1.1); }
+.button-danger { background: #f87171; margin-top: 18px; }
+
+.email-card { margin: 25px 0; max-width: 800px; }
+.email-top { color: var(--blue); font-weight: 800; letter-spacing: 1px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 20px 0; }
+
+.panel { margin: 22px 0; }
+.panel label { display: block; margin: 15px 0; }
+.choice { color: var(--muted); }
+
+textarea {
+    width: 100%;
+    background: #0b1525;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font: inherit;
+    resize: vertical;
+    margin: 12px 0 18px;
+}
+
+textarea:focus { outline: 1px solid var(--blue); }
+
+.result-box {
+    border-color: var(--blue);
+    margin-top: 20px;
+}
+
+.result-box strong { color: var(--green); }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 13px; border-bottom: 1px solid var(--border); }
+th { color: var(--blue); font-size: 12px; }
+
+footer {
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    text-align: center;
+    padding: 22px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 950px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 650px) {
+    .sidebar { position: static; width: 100%; padding: 16px; }
+    .brand { margin-bottom: 15px; }
+    nav { grid-template-columns: repeat(2, 1fr); }
+    .sidebar-bottom { margin-top: 18px; }
+    .main-content { margin-left: 0; }
+    .page-content { padding: 20px; }
+    .topbar { padding: 0 15px; font-size: 9px; }
+    .welcome { padding: 22px; }
+    .terminal-mark { display: none; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .challenge-card { flex-direction: column; }
+    .challenge-meta { justify-items: start; }
+}
+
+@media (max-width: 380px) {
+    .stats-grid { grid-template-columns: 1fr; }
+}
