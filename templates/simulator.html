@@ -1,0 +1,31 @@
+﻿{% extends "base.html" %}
+{% block title %}Simulador | PhishLab{% endblock %}
+{% block content %}
+<span class="eyebrow">LAB 02 / SIMULAÇÃO DE E-MAIL</span>
+<h1>Caixa de entrada simulada</h1>
+<p class="muted">Examine a mensagem fictícia e classifique-a.</p>
+
+<div class="email-card">
+    <div class="email-top">✉ MENSAGEM DE TREINAMENTO</div>
+    <p><strong>De:</strong> {{ email.sender }}</p>
+    <p><strong>Assunto:</strong> {{ email.subject }}</p>
+    <hr>
+    <p>{{ email.message }}</p>
+    <p class="muted">Nenhum link real ou formulário de credenciais está presente nesta simulação.</p>
+</div>
+
+<form method="POST" class="panel">
+    <h3>Como você classificaria essa mensagem?</h3>
+    <label class="choice"><input type="radio" name="answer" value="phishing" required> Suspeita / Phishing</label>
+    <label class="choice"><input type="radio" name="answer" value="legit"> Legítima</label>
+    <button class="button" type="submit">Enviar resposta</button>
+</form>
+
+{% if result %}
+<div class="result-box">
+    <h3>{{ "✓ Resposta correta" if result.correct else "↗ Continue aprendendo" }}</h3>
+    <p>{{ result.explanation }}</p>
+    <strong>+{{ result.points }} XP</strong>
+</div>
+{% endif %}
+{% endblock %}

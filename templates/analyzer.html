@@ -1,0 +1,33 @@
+﻿{% extends "base.html" %}
+{% block title %}Analisador | PhishLab{% endblock %}
+{% block content %}
+<span class="eyebrow">LAB 03 / ANÁLISE DE TEXTO</span>
+<h1>Analisador de mensagens</h1>
+<p class="muted">Analise textos de exemplo sem enviar mensagens para terceiros.</p>
+
+<form method="POST" class="panel">
+    <label for="message">Conteúdo da mensagem</label>
+    <textarea id="message" name="message" maxlength="5000" rows="8" placeholder="Cole aqui um texto fictício para analisar..." required></textarea>
+    <button type="submit" class="button">Analisar mensagem</button>
+</form>
+
+{% if analysis %}
+<div class="result-box">
+    {% if analysis.error %}
+        <p>{{ analysis.error }}</p>
+    {% else %}
+        <h3>Resultado da análise</h3>
+        <p>{{ analysis.message }}</p>
+        <strong>{{ analysis.count }} indicador(es) encontrado(s)</strong>
+        {% if analysis.indicators %}
+        <ul>
+            {% for indicator in analysis.indicators %}
+            <li>{{ indicator }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <p class="muted">Esta ferramenta usa regras básicas. Não é um detector definitivo de phishing.</p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}
